@@ -1,3 +1,10 @@
-a {
-  color: red;
+body {
+  background: #14151f;
+  color: white;
+  font-family: inter;
+}
+
+.title-section {
+  text-align: center;
+  font-size: 27px;
 }
