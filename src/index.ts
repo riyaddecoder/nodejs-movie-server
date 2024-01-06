@@ -1,11 +1,19 @@
+import path from 'path'
 import express from 'express'
 import { getIpAddress } from './helper/getIpAddress'
 
 const app = express()
 const port = 5000
 
+//Setting up views
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
+
+//Server static files
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.get('/', (req, res) => {
-  res.json('Got the request')
+  res.render('index', { username: 'Riyad' })
 })
 
 app.listen(port, () => {
