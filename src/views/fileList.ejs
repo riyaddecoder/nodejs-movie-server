@@ -1,0 +1,10 @@
+<ul class="file-list">
+  <% for (let i = 0; i < files.length; i++) { %> <% if(files[i].isDirectory) {
+  %>
+  <li class="folder"><%= files[i].name %></li>
+  <% } else { %>
+  <li class="file">
+    <a href="/<%=files[i].name%>"><%= files[i].name %></a>
+  </li>
+  <% } %> <% } %>
+</ul>

@@ -1,6 +1,9 @@
 import path from 'path'
 import express from 'express'
 import { getIpAddress } from './helper/getIpAddress'
+import { getAllFiles } from './helper/getAllFiles'
+
+export const ROOT_DIR = '/home/riyad/Movies'
 
 const app = express()
 const port = 5000
@@ -11,9 +14,15 @@ app.set('views', path.join(__dirname, 'views'))
 
 //Server static files
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(ROOT_DIR))
 
 app.get('/', (req, res) => {
-  res.render('index', { username: 'Riyad' })
+  const ipAddress = getIpAddress()
+  res.render('index', {
+    files: getAllFiles(ROOT_DIR),
+    ipAddress,
+    port,
+  })
 })
 
 app.listen(port, () => {

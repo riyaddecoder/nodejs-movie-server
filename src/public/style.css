@@ -3,8 +3,33 @@ body {
   color: white;
   font-family: inter;
 }
+body a {
+  color: #a7a7ff;
+}
 
 .title-section {
   text-align: center;
   font-size: 27px;
+}
+
+.file-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.file-list li {
+  border: 1px solid #555;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+.file-list .folder::before {
+  content: '\1F4C1'; /* Unicode character for a folder icon */
+  margin-right: 5px; /* Adjust spacing between the icon and text */
+}
+
+.file-list .file::before {
+  content: '\1F3A5'; /* Unicode character for a file icon */
+  margin-right: 5px; /* Adjust spacing between the icon and text */
 }
