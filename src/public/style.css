@@ -18,15 +18,31 @@ body a {
 }
 
 .file-list li {
+  display: flex;
+  position: relative;
   border: 1px solid #555;
   padding: 10px;
   border-radius: 8px;
   margin-top: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .file-list li:hover {
   background-color: #030528;
   cursor: pointer;
+}
+
+.file-list li.file span {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 36px;
 }
 
 .file-list .folder::before {
@@ -37,4 +53,20 @@ body a {
 .file-list .file::before {
   content: '\1F3A5'; /* Unicode character for a file icon */
   margin-right: 5px; /* Adjust spacing between the icon and text */
+}
+
+.file-list button.copy-button {
+  background-color: #172d3c;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  padding: 5px 6px 4px 6px;
+  position: absolute;
+  right: 7px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.file-list button.copy-button:hover {
+  background: #283e4d;
 }

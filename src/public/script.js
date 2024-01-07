@@ -28,3 +28,11 @@ function traverse() {
       container.innerHTML = data
     })
 }
+
+function handleCopy(e, filePath) {
+  e.preventDefault()
+  e.stopPropagation()
+  navigator.clipboard.writeText(
+    `${window.location.protocol}//${window.location.host}/${filePath}`
+  )
+}
