@@ -32,7 +32,25 @@ function traverse() {
 function handleCopy(e, filePath) {
   e.preventDefault()
   e.stopPropagation()
-  navigator.clipboard.writeText(
-    `${window.location.protocol}//${window.location.host}/${filePath}`
-  )
+  const fullPath = `${window.location.protocol}//${window.location.host}/${filePath}`
+
+  if (window.isSecureContext && navigator.clipboard) {
+    navigator.clipboard.writeText(fullPath)
+  } else {
+    unsecuredCopyToClipboard(fullPath)
+  }
+}
+
+function unsecuredCopyToClipboard(text) {
+  const textArea = document.createElement('textarea')
+  textArea.value = text
+  document.body.appendChild(textArea)
+  textArea.focus()
+  textArea.select()
+  try {
+    document.execCommand('copy')
+  } catch (err) {
+    console.error('Unable to copy to clipboard', err)
+  }
+  document.body.removeChild(textArea)
 }
