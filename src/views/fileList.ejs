@@ -1,10 +1,14 @@
 <ul class="file-list">
-  <% for (let i = 0; i < files.length; i++) { %> <% if(files[i].isDirectory) {
-  %>
-  <li class="folder"><%= files[i].name %></li>
-  <% } else { %>
-  <li class="file">
-    <a href="/<%=files[i].name%>"><%= files[i].name %></a>
+  <% if (subPath) { %>
+  <li class="folder" onclick="gotoBackPage()"><span>...</span></li>
+  <% } %> <% for (let i = 0; i < files.length; i++) { %> <%
+  if(files[i].isDirectory) { %>
+  <li class="folder" onclick="openFolder(`<%=files[i].name%>`)">
+    <%= files[i].name %>
   </li>
-  <% } %> <% } %>
+  <% } else { %>
+  <li class="file" onclick="openMovieUrl(`<%=subPath+'/'+files[i].name%>`)">
+    <span><%= files[i].name %></span>
+  </li>
+  <% } } %>
 </ul>

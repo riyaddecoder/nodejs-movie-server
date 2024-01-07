@@ -24,6 +24,11 @@ body a {
   margin-top: 5px;
 }
 
+.file-list li:hover {
+  background-color: #030528;
+  cursor: pointer;
+}
+
 .file-list .folder::before {
   content: '\1F4C1'; /* Unicode character for a folder icon */
   margin-right: 5px; /* Adjust spacing between the icon and text */
