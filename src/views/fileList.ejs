@@ -7,7 +7,10 @@
     <%= files[i].name %>
   </li>
   <% } else { %>
-  <li class="file" onclick="openMovieUrl(`<%=subPath+'/'+files[i].name%>`)">
+  <li
+    class="file"
+    onclick="openMovieUrl(`<%=(subPath?subPath+'/' : '')+files[i].name%>`)"
+  >
     <span><%= files[i].name %></span>
   </li>
   <% } } %>

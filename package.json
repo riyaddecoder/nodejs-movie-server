@@ -9,18 +9,21 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "nodemon": "^3.0.2",
-    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
   "scripts": {
     "start": "nodemon --exec ts-node src/index.ts",
-    "prod": "tsc",
+    "build": "tsc && ts-node scripts/copy-assets",
+    "prod": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/ejs": "^3.1.5"
+    "@types/ejs": "^3.1.5",
+    "@types/shelljs": "^0.8.15",
+    "shelljs": "^0.8.5",
+    "ts-node": "^10.9.2"
   }
 }
