@@ -3,7 +3,7 @@ import express from 'express'
 import { getIpAddress } from './helper/getIpAddress'
 import { getAllFiles } from './helper/getAllFiles'
 
-export const ROOT_DIR = '/home/riyad/Movies'
+export const ROOT_DIR = '/home/riyad/movie'
 
 const app = express()
 const port = 5000
